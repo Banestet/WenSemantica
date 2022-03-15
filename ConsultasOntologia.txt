@@ -1,0 +1,69 @@
+consulta para traer todo la informacion de un automovil como:
+
+marca, modelo, color, placa y su precio
+
+con el filtro para traer solo 10 registros, la variable buscar2 la utiliozamos para aplicar el buscador 
+
+			   "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
+               "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
+               "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" +
+               "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+                "prefix data:<http://www.semanticweb.org/baneste/ontologies/2022/1/untitled-ontology-4#>" +
+                "SELECT ?Vehiculo  ?Modelo ?Color ?Placa  ?Precio " +
+                "WHERE { " +
+                "?x data:Vehiculo_Marca ?Vehiculo. " +
+                "?x data:Vehiculo_Modelo ?Modelo. " +
+                "?x data:Vehiculo_Color ?Color. " +
+                "?x data:Vehiculo_Placa ?Placa. " +
+                "?x data:Vehiculo_Precio ?Precio " +
+                "FILTER(REGEX(str(?Vehiculo),'" + buscar2 + "','i')) } LIMIT 10" 
+                
+               );
+
+
+consulta para mandar a traer toda la informacion de un cliente como:
+nombre completo, identificacion, telefono, email, edad y la compra que realizo en este caso un automovil,
+con su respectivo filtro para mostrar los primeros 6 registros 
+
+
+			   "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
+               "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
+               "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" +
+               "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+                "prefix data:<http://www.semanticweb.org/baneste/ontologies/2022/1/untitled-ontology-4#>" +
+                "SELECT ?Cliente ?Identificacion ?Telefono ?Email ?Edad ?Compra " +
+                "WHERE { " +
+                "?x data:Persona_Nombre ?Cliente. " +
+                "?x data:Persona_Identificacion ?Identificacion. " +
+                "?x data:Persona_Telefono ?Telefono. " +
+                "?x data:Persona_Email ?Email. " +
+                "?x data:Persona_Edad ?Edad. " +
+                "?x data:Compra ?Compra " +
+                "} LIMIT 6 "
+
+               );
+
+
+
+consulta para mandar a traer toda la informacion del proveedor como lo es:
+su nombre de la empresa, el nit, telefono, email, direccion que automovil importa y a que concesionario abastece y
+con su respectivo buscador para mandar a traer la informacion acertada.
+
+			  "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
+              "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
+              "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" +
+              "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+               "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+               "prefix data:<http://www.semanticweb.org/baneste/ontologies/2022/1/untitled-ontology-4#>" +
+               "SELECT ?Proveedor  ?Nit ?Telefono ?Email ?Direccion ?Importa ?Abastece " +
+               "WHERE { " +
+               "?x data:Nombre_Empresa ?Proveedor. " +
+               "?x data:Nit ?Nit. " +
+               "?x data:Telefono ?Telefono. " +
+               "?x data:Email ?Email. " +
+               "?x data:Direccion ?Direccion. " +
+               "?x data:Importa ?Importa. " +
+               "?x data:Abastece ?Abastece " +
+              "FILTER(REGEX(str(?Proveedor),'" + buscar4 + "','i')) } "
